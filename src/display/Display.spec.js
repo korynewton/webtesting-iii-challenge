@@ -18,4 +18,10 @@ describe('<Display />', () => {
     const open = render(<Display />);
     expect(open.getByText(/open/i)).toBeInTheDocument();
   });
+  it('displays "Locked" if the locked prop is true and "unlock" otherwise', () => {
+    const closed = render(<Display locked={true} />);
+    expect(closed.getByText(/locked/i)).toBeInTheDocument();
+    const open = render(<Display />);
+    expect(open.getByText(/unlock/i)).toBeInTheDocument();
+  });
 });
