@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gate tests screenshots application 1`] = `
+Array [
+  <div
+    className="display panel"
+  >
+    <div
+      className="led green-led"
+    >
+      Unlocked
+    </div>
+    <div
+      className="led green-led"
+    >
+      Open
+    </div>
+  </div>,
+  <div
+    className="controls panel"
+  >
+    <button
+      className="toggle-btn"
+      disabled={true}
+      onClick={[Function]}
+    >
+      Lock Gate
+    </button>
+    <button
+      className="toggle-btn"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Close Gate
+    </button>
+  </div>,
+]
+`;
