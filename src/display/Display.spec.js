@@ -11,4 +11,11 @@ describe('<Display />', () => {
   it('renders Display component without error', () => {
     render(<Display />);
   });
+
+  it('displays "Closed" if the closed prop is true and "Open" otherwise', () => {
+    const closed = render(<Display closed={true} />);
+    expect(closed.getByText(/closed/i)).toBeInTheDocument();
+    const open = render(<Display />);
+    expect(open.getByText(/open/i)).toBeInTheDocument();
+  });
 });
