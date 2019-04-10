@@ -18,6 +18,7 @@ describe('<Display />', () => {
     const open = render(<Display />);
     expect(open.getByText(/open/i)).toBeInTheDocument();
   });
+
   it('displays "Locked" if the locked prop is true and "unlock" otherwise', () => {
     const closed = render(<Display locked={true} />);
     expect(closed.getByText(/locked/i)).toBeInTheDocument();
@@ -30,5 +31,12 @@ describe('<Display />', () => {
     expect(locked.getByText(/locked/i)).toHaveClass('red-led');
     const closed = render(<Display closed={true} />);
     expect(closed.getByText(/closed/i)).toHaveClass('red-led');
+  });
+
+  it('when unlocked or open use the green-led class', () => {
+    const unlocked = render(<Display locked={false} />);
+    expect(unlocked.getByText(/unlocked/i)).toHaveClass('green-led');
+    const open = render(<Display closed={false} />);
+    expect(open.getByText(/open/i)).toHaveClass('green-led');
   });
 });
