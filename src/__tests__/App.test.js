@@ -1,12 +1,20 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { render } from 'react-testing-library';
 
 import Dashboard from '../dashboard/Dashboard';
 
 describe('Gate tests', () => {
-  it('screenshots application', () => {
+  it.skip('screenshots application', () => {
     const app = renderer.create(<Dashboard />).toJSON();
     expect(app).toMatchSnapshot();
+  });
+
+  it('should default to unlocked and open', () => {
+    const { getByText } = render(<Dashboard />);
+
+    getByText(/unlocked/i);
+    getByText(/open/i);
   });
 });
 
