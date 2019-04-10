@@ -24,4 +24,11 @@ describe('<Display />', () => {
     const open = render(<Display />);
     expect(open.getByText(/unlock/i)).toBeInTheDocument();
   });
+
+  it('when locked or closed use the red-led class', () => {
+    const locked = render(<Display locked={true} />);
+    expect(locked.getByText(/locked/i)).toHaveClass('red-led');
+    const closed = render(<Display closed={true} />);
+    expect(closed.getByText(/closed/i)).toHaveClass('red-led');
+  });
 });
